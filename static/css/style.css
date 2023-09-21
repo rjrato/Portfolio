@@ -147,6 +147,35 @@ nav ul li:hover:after {
           transform: scaleX(1);
 }
 
+.lang-en {
+  color: #F6F1F1;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+}
+
+.lang-en:focus, .lang-en:hover, .lang-pt:focus, .lang-pt:hover {
+  color: #19A7CE;
+  
+}
+
+.lang-pt {
+  color: #F6F1F1;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+}
+
+.lang-sep {
+  padding-top: 4px;
+}
+
 .nav-link {
   color: #F6F1F1;
   font-size: 1.4rem;
@@ -668,9 +697,11 @@ nav input:checked ~ ul li {
   color: inherit;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.about-resume-a:hover {
+.about-resume-a:hover, .about-resume-a:hover strong {
   -webkit-transition: color 300ms ease-out;
   transition: color 300ms ease-out;
   color: #13005A;
@@ -1085,6 +1116,7 @@ nav input:checked ~ ul li {
 }
 
 .projects-container-btns-left {
+
   padding: 50px 50px 0 0;
   text-align: left;
 }
