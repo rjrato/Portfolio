@@ -329,77 +329,38 @@ nav input:checked ~ ul li {
   position: absolute;
   white-space: nowrap;
   opacity: 0;
-  -webkit-animation: rotate-word 17,5s linear infinite;
-          animation: rotate-word 17.5s linear infinite;
+  -webkit-animation: rotate-word 20s linear infinite;
 }
 
 .homepage-container-flip span:nth-child(2) {
   -webkit-animation-delay: 2.5s;
-          animation-delay: 2.5s;
 }
 
 .homepage-container-flip span:nth-child(3) {
   -webkit-animation-delay: 5s;
-          animation-delay: 5s;
 }
 
 .homepage-container-flip span:nth-child(4) {
   -webkit-animation-delay: 7.5s;
-          animation-delay: 7.5s;
 }
 
 .homepage-container-flip span:nth-child(5) {
   -webkit-animation-delay: 10s;
-          animation-delay: 10s;
 }
 
 .homepage-container-flip span:nth-child(6) {
   -webkit-animation-delay: 12.5s;
-          animation-delay: 12.5s;
 }
 
 .homepage-container-flip span:nth-child(7) {
   -webkit-animation-delay: 15s;
-          animation-delay: 15s;
+}
+
+.homepage-container-flip span:nth-child(8) {
+  -webkit-animation-delay: 17.5s;
 }
 
 @-webkit-keyframes rotate-word {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
-  }
-  4% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  17% {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  19% {
-    opacity: 0;
-  }
-  20% {
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes rotate-word {
   0% {
     opacity: 0;
   }
@@ -443,8 +404,7 @@ nav input:checked ~ ul li {
 .flip::after {
   content: '';
   display: inline-block;
-  -webkit-transform: translateX(5px);
-          transform: translateX(5px);
+  -webkit-transform: translateX(10px);
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -511,6 +471,14 @@ nav input:checked ~ ul li {
 
 .flip-person::after {
   background-image: url("./../img/a-person.png");
+}
+
+.flip-music::after {
+  background-image: url("./../img/music.png");
+}
+
+.flip-mindset::after {
+  background-image: url("./../img/mindset.png");
 }
 
 /*-- SEPARATION DIV'S SECTION --*/
@@ -708,10 +676,10 @@ nav input:checked ~ ul li {
 }
 
 .about-h5 {
-  font-family: "Ubuntu";
-  font-size: 1.1rem;
-  text-align: justify;
-  color: #9DB2BF;
+  font-family: "Calibri";
+  font-size: 1.2rem;
+  text-align: left;
+  color: #F6F1F1;
   line-height: 1.5;
 }
 
