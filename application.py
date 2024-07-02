@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from datetime import datetime
 import smtplib
 import json
 import os
@@ -27,10 +28,11 @@ def get_lang_data(lang):
 
 @application.route("/")
 def index():
+    year = datetime.now().year
     lang = session.get("lang", "en")
     data = get_lang_data(lang)
 
-    return render_template("index.html", data=data)
+    return render_template("index.html", data=data, year=year)
 
 
 @application.route("/set_language/<lang>")
