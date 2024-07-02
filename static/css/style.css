@@ -1,3 +1,15 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "valencia";
+  src: url("./../fonts/Valencia 400.ttf");
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -5,7 +17,8 @@ html {
 }
 
 body {
-  overflow-y: scroll;
+    overflow-y: scroll;
+    font-size: 16px;
 }
 
 .container-fluid {
@@ -18,11 +31,6 @@ body {
   font-weight: bold;
   color: #C5C6C7;
   background-color: #1F2833;
-}
-
-@font-face {
-  font-family: "valencia";
-  src: url("./../fonts/Valencia 400.ttf");
 }
 
 /*-- NAV MENU --*/
@@ -116,12 +124,8 @@ nav ul {
 
 nav ul li {
   position: relative;
-  -webkit-transform: translateY(-285px);
-          transform: translateY(-285px);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
+  transform: translateY(-425px);
   transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
 }
 
 nav ul li:after {
@@ -925,52 +929,248 @@ nav input:checked ~ ul li {
   padding: 20px 0 50px 0;
 }
 
+.projects-container-fluid {
+    width: 100%;
+    text-align: left;
+}
+
 .projects-h2, .projects-h3, .projects-h4 {
   font-family: "Montserrat";
 }
 
-.projects-p-right {
-  padding-top: 10px;
-  color: #F6F1F1;
-  text-align: right;
+.project2-background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 107%;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
 }
 
-.projects-p-left {
-  padding-top: 10px;
-  color: #F6F1F1;
-  text-align: left;
+.project3-background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 128%;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
 }
 
-.projects-h4-right {
-  padding-top: 40px;
-  color: #F6F1F1;
-  text-align: right;
+.project4-background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 101%;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
 }
 
-.projects-h4-left {
-  padding-top: 40px;
-  color: #F6F1F1;
-  text-align: left;
+.project5-background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  height: 100%;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
 }
 
 .projects-h3 {
   padding-top: 60px;
   padding-bottom: 20px;
   color: #F6F1F1;
+  text-align: center;
 }
 
 .projects-h2 {
   font-weight: 900;
   color: #13005A;
   padding-bottom: 20px;
+  text-align: center;
 }
 
-.projects .projects-container-text {
-  margin-bottom: 1.5rem;
+.game-section {
+  padding: 60px 50px;
 }
 
-.projects .container-project {
-  margin-bottom: 4.2rem;
+.game-section .owl-stage {
+  margin: 15px 0;
+  display: flex;
+}
+
+.game-section .item {
+  margin: 0 15px 60px;
+  width: 380px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  background-size: 100% 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.game-section .item.active {
+  width: 500px;
+  background-size: 100% 100%;
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+}
+
+.game-section .item:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.game-section .item-desc {
+  padding: 0 24px 12px;
+  color: #F6F1F1;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform: translateY(calc(100% - 54px));
+  transition: all 0.4s ease-in-out;;
+}
+
+.game-section .item-desc h3 {
+    font-weight: 600;
+}
+
+.game-section .item.active .item-desc {
+  transform: none;
+}
+
+.game-section .item-desc p {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.4s ease-in-out 0.2s;
+}
+
+.game-section .item.active .item-desc p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.game-section .owl-theme.custom-carousel .owl-dots {
+  margin-top: -20px;
+  position: relative;
+  z-index: 5;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .game-section {
+    padding: 50px 30px;
+  }
+
+  .game-section .item {
+    margin: 0 12px 60px;
+    width: 260px;
+    height: 360px;
+  }
+
+  .game-section .item.active {
+    width: 400px;
+  }
+
+  .game-section .item-desc {
+    transform: translateY(calc(100% - 46px));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .line-title {
+    width: 330px;
+  }
+
+  .game-section {
+    padding: 50px 30px 40px;
+  }
+
+  .game-section .item {
+    margin: 0 12px 60px;
+    width: 240px;
+    height: 330px;
+  }
+
+  .game-section .item.active {
+    width: 360px;
+  }
+
+  .game-section .item-desc {
+    transform: translateY(calc(100% - 42px));
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    line-height: 24px;
+  }
+  .line-title {
+    width: 250px;
+  }
+
+  .game-section {
+    padding: 30px 15px 20px;
+  }
+  .game-section .item {
+    margin: 0 10px 40px;
+    width: 200px;
+    height: 280px;
+  }
+  .game-section .item.active {
+    width: 270px;
+    box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .game-section .item-desc {
+    padding: 0 14px 5px;
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+  }
+
+  .game-section .item-desc {
+    padding: 0 14px 5px;
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+  }
 }
 
 .projects .projects-container-icons-right, .projects-container-icons-left {
@@ -999,10 +1199,6 @@ nav input:checked ~ ul li {
   height: 2rem;
 }
 
-.projects .projects-container {
-  margin-bottom: 4.2rem;
-}
-
 .btn {
   margin-bottom: 7px;
   background-color: #9DB2BF;
@@ -1024,6 +1220,7 @@ nav input:checked ~ ul li {
 
 .btn:hover {
   background-color: #F6F1F1;
+  color: #13005A;
   padding: .5rem 1.8rem 1rem;
 }
 
@@ -1055,40 +1252,6 @@ nav input:checked ~ ul li {
   right: 0;
 }
 
-.projects-container-img-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
-}
-
-.projects-container-img-left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  filter: drop-shadow(-10px 10px 4px rgba(0, 0, 0, 0.5));
-}
-
-.projects-img {
-  flex-shrink: 0;
-  max-width: 100%;
-  max-height: 100%;
-  padding: 40px 0 0 15px;
-}
-
-.projects-container-btns-right {
-  padding: 50px 0 0 50px;
-  text-align: right;
-}
-
-.projects-container-btns-left {
-
-  padding: 50px 50px 0 0;
-  text-align: left;
-}
-
 .projects-container-icons-right {
   float: right;
 }
@@ -1100,43 +1263,6 @@ nav input:checked ~ ul li {
 @media (min-width: 375px) {
   .projects-h2, .projects-h3 {
     text-align: center;
-  }
-}
-
-@media (min-width: 700px) {
-  .projects .projects-container-text {
-    width: 100%;
-    padding-left: 20px;
-  }
-
-  .projects .projects-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  .projects .projects-container:nth-child(odd) .projects-container-text {
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
-    padding-left: 0;
-  }
-}
-
-@media (min-width: 992px) {
-  .projects-h2, .projects-h3 {
-    text-align: left;
   }
 }
 
