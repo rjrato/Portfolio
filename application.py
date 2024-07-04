@@ -35,7 +35,7 @@ def index():
     return render_template("index.html", data=data, year=year)
 
 
-@application.route("/set_language/<lang>")
+@application.route("/set_language/<lang>", methods=["GET", "POST"])
 def set_language(lang):
     session["lang"] = lang
     return redirect(url_for("index"))
