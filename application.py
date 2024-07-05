@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, send_file, make_response
+from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import datetime
-from logging.handlers import RotatingFileHandler
-import logging
 import smtplib
 import json
 import os
