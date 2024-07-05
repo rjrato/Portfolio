@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_file, make_response
 from datetime import datetime
+from logging.handlers import RotatingFileHandler
+import logging
 import smtplib
 import json
 import os
@@ -11,6 +13,31 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 application = Flask(__name__)
 application.secret_key = SECRET_KEY
+
+# Setup logging
+if not application.debug:
+    file_handler = RotatingFileHandler('error.log', maxBytes=10240, backupCount=10)
+    file_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+    )
+    file_handler.setFormatter(formatter)
+    application.logger.addHandler(file_handler)
+    application.logger.setLevel(logging.INFO)
+    application.logger.info('Application startup')
+
+
+@application.errorhandler(500)
+def internal_error(error):
+    application.logger.error('Server Error: %s', error)
+    return "500 error", 500
+
+
+@application.errorhandler(404)
+def not_found_error(error):
+    application.logger.error('Not Found: %s', error)
+    return "404 error", 404
+
 
 with open("static/JSON/en.json", encoding='utf-8') as file:
     en_json = json.load(file)
@@ -37,11 +64,21 @@ def index():
 
 @application.route("/set_language/<lang>", methods=["GET", "POST"])
 def set_language(lang):
-    session["lang"] = lang
-    return redirect(url_for("index"))
+    try:
+        with open(f"static/JSON/{lang}.json") as json_file:
+            data = json.load(json_file)
+        response = make_response(json.dumps(data))
+        response.headers["Content-Type"] = "application/json"
+        return response
+    except Exception as e:
+        application.logger.error("Error: %s", e)
+        return "Error loading language file", 500
+
+    # session["lang"] = lang
+    # return redirect(url_for("index"))
 
 
-@application.route("/#contact", methods=["GET", "POST"])
+@application.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
         name = request.form.get("name")
@@ -61,4 +98,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    application.run()
+    application.run(debug=True)
