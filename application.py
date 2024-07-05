@@ -14,43 +14,28 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 application = Flask(__name__)
 application.secret_key = SECRET_KEY
 
-# Setup logging
-if not application.debug:
-    file_handler = RotatingFileHandler('error.log', maxBytes=10240, backupCount=10)
-    file_handler.setLevel(logging.INFO)
-    formatter = logging.Formatter(
-        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
-    )
-    file_handler.setFormatter(formatter)
-    application.logger.addHandler(file_handler)
-    application.logger.setLevel(logging.INFO)
-    application.logger.info('Application startup')
+
+# Dynamic path construction
+def load_json(filename):
+    try:
+        file_path = os.path.join(application.static_folder, 'JSON', filename)
+        with open(file_path, encoding='utf-8') as file:
+            return json.load(file)
+    except Exception as e:
+        application.logger.error(f"Error loading {filename}: {e}")
+        return {}
 
 
-@application.errorhandler(500)
-def internal_error(error):
-    application.logger.error('Server Error: %s', error)
-    return "500 error", 500
-
-
-@application.errorhandler(404)
-def not_found_error(error):
-    application.logger.error('Not Found: %s', error)
-    return "404 error", 404
-
-
-with open("static/JSON/en.json", encoding='utf-8') as file:
-    en_json = json.load(file)
-
-with open("static/JSON/pt.json", encoding='utf-8') as file:
-    pt_json = json.load(file)
+# Load JSON files
+en_json = load_json('en.json')
+pt_json = load_json('pt.json')
 
 
 def get_lang_data(lang):
     if lang == "pt":
-        return pt_json["portuguese"]
+        return pt_json.get("portuguese", {})
     else:
-        return en_json["english"]
+        return en_json.get("english", {})
 
 
 @application.route("/")
@@ -64,18 +49,8 @@ def index():
 
 @application.route("/set_language/<lang>", methods=["GET", "POST"])
 def set_language(lang):
-    try:
-        with open(f"static/JSON/{lang}.json") as json_file:
-            data = json.load(json_file)
-        response = make_response(json.dumps(data))
-        response.headers["Content-Type"] = "application/json"
-        return response
-    except Exception as e:
-        application.logger.error("Error: %s", e)
-        return "Error loading language file", 500
-
-    # session["lang"] = lang
-    # return redirect(url_for("index"))
+    session["lang"] = lang
+    return redirect(url_for("index"))
 
 
 @application.route("/contact", methods=["GET", "POST"])
