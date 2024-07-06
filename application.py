@@ -1,3 +1,5 @@
+import ssl
+
 from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import datetime
 import smtplib
@@ -57,8 +59,9 @@ def contact():
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as connection:
+            #connection.starttls()
             connection.login(user=EMAIL, password=PASS)
             connection.sendmail(
                 from_addr=EMAIL,
