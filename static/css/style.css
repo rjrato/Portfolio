@@ -1285,10 +1285,197 @@ section.contact form textarea:valid ~ label {
   transform: translateY(-168px);
 }
 
+.feedback-message {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    background-color: #9DB2BF;
+    width: 0;
+    color: #13005A;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feedback-message.show {
+    animation: slideInOut 6s forwards;
+}
+
+.feedback-message.show p {
+    animation: fadeText 6s forwards;
+}
+
+.feedback-1 {
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+}
+
+.feedback-2 {
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+}
+
+@keyframes slideInOut {
+    0% {
+        width: 0;
+        left: 0;
+        opacity: 0;
+    }
+    25% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 4px;
+        opacity: 1;
+    }
+    30% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    35% {
+         width: 30vw;
+         left: calc(50% - 15vw);
+         height: 150px;
+         padding: 10px;
+         opacity: 1;
+    }
+    70% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    75% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 4px;
+        padding: 10px;
+        opacity: 1;
+    }
+    85% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        opacity: 1;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeText {
+     0% {
+         opacity: 0;
+     }
+     35% {
+         opacity: 0;
+     }
+     45% {
+         opacity: 1;
+     }
+     70% {
+         opacity: 1;
+     }
+     80% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 0;
+     }
+}
+
 @media (min-width: 320px) {
   .contact-h2, .contact-p {
     text-align: center;
   }
+
+  .feedback-1 {
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+}
+
+  .feedback-2 {
+    margin: 0;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+}
+
+  @keyframes slideInOut {
+    0% {
+        width: 0;
+        left: 0;
+        opacity: 0;
+    }
+    25% {
+        width: 70vw;
+        left: calc(50% - 35vw);
+        height: 4px;
+        opacity: 1;
+    }
+    30% {
+        width: 70vw;
+        left: calc(50% - 35vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    35% {
+         width: 70vw;
+         left: calc(50% - 35vw);
+         height: 150px;
+         padding: 10px;
+         opacity: 1;
+    }
+    70% {
+        width: 70vw;
+        left: calc(50% - 35vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    75% {
+        width: 70vw;
+        left: calc(50% - 35vw);
+        height: 4px;
+        padding: 10px;
+        opacity: 1;
+    }
+    85% {
+        width: 60vw;
+        left: calc(50% - 30vw);
+        opacity: 1;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+        opacity: 0;
+    }
+}
 }
 
 @media (min-width: 800px) {

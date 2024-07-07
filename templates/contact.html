@@ -11,7 +11,7 @@
             <p id="contact-p1" class="contact-p">{{ data.contactP1 }}</p>
             <p id="contact-p2"class="contact-p">{{ data.contactP2 }}</p>
 
-            <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+            <form id="contactForm" class="contact-form" action="{{ url_for('contact') }}" method="POST">
               <div class="contact-form-field">
                 <input type="text" name="name" id="name" required="required">
                 <label id="form-name" for="name">{{ data.formName }}<span class="required">*</span></label>
@@ -33,6 +33,12 @@
         </div>
 
       </div>
+
+      <div class="feedback-message" id="feedbackMessage">
+        <p class="feedback-1"> Thank you for your contact!</p>
+        <p class="feedback-2">Will get back to you as soon as possible.</p>
+      </div>
+
     </section>
 
 {% include "footer.html" %}
