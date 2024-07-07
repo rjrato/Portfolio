@@ -61,7 +61,6 @@ def contact():
         message = request.form.get("message")
         context = ssl.create_default_context()
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as connection:
-            #connection.starttls()
             connection.login(user=EMAIL, password=PASS)
             connection.sendmail(
                 from_addr=EMAIL,
