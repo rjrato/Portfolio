@@ -1,6 +1,6 @@
 import ssl
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from datetime import datetime
 import smtplib
 import json
@@ -59,15 +59,18 @@ def contact():
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as connection:
-            connection.login(user=EMAIL, password=PASS)
-            connection.sendmail(
-                from_addr=EMAIL,
-                to_addrs=TO_ADDRESS,
-                msg=f"Subject:You got a new contact from ricardorato.dev!\n\nMessage from:\n{name}\n\nEmail:\n{email}\n\nMessage:\n{message}"
-            )
-        return redirect(url_for("index"))
+        try:
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as connection:
+                connection.login(user=EMAIL, password=PASS)
+                connection.sendmail(
+                    from_addr=EMAIL,
+                    to_addrs=TO_ADDRESS,
+                    msg=f"Subject:You got a new contact from ricardorato.dev!\n\nMessage from:\n{name}\n\nEmail:\n{email}\n\nMessage:\n{message}"
+                )
+            return jsonify({"status": "success"}), 200
+        except Exception as e:
+            return jsonify({"status": "error", "message": str(e)}), 500
 
     return render_template("index.html")
 

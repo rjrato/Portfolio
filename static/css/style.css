@@ -1494,6 +1494,60 @@ section.contact form textarea:valid ~ label {
   }
 }
 
+@media (min-width: 992px) {
+    @keyframes slideInOut {
+    0% {
+        width: 0;
+        left: 0;
+        opacity: 0;
+    }
+    25% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 4px;
+        opacity: 1;
+    }
+    30% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    35% {
+         width: 30vw;
+         left: calc(50% - 15vw);
+         height: 150px;
+         padding: 10px;
+         opacity: 1;
+    }
+    70% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 150px;
+        padding: 10px;
+        opacity: 1;
+    }
+    75% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        height: 4px;
+        padding: 10px;
+        opacity: 1;
+    }
+    85% {
+        width: 30vw;
+        left: calc(50% - 15vw);
+        opacity: 1;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+        opacity: 0;
+    }
+}
+}
+
 /*-- FOOTER SECTION --*/
 footer {
     margin-bottom: 0;

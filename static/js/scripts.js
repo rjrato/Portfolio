@@ -29,19 +29,33 @@ document.querySelectorAll('.nav-link').forEach(item => {
     });
 });
 
-function showFeedbackMessage() {
-    var message = document.getElementById('feedbackMessage');
-    message.classList.add('show');
-
-    // Remove the class after the animation ends to allow re-triggering
-    setTimeout(function() {
-        message.classList.remove('show');
-    }, 6000); // Match the duration of the animation
-}
-
-// Example: Call this function when the form is submitted
 document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent actual form submission for demo purposes
-    showFeedbackMessage();
+    event.preventDefault(); // Prevent actual form submission
+
+    var formData = new FormData(this);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/contact', true);
+    xhr.setRequestHeader('Accept', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === "success") {
+                var message = document.getElementById('feedbackMessage');
+                message.classList.add('show');
+
+                // Remove the class after the animation ends to allow re-triggering
+                setTimeout(function() {
+                    message.classList.remove('show');
+                }, 6000); // Match the duration of the animation
+            } else {
+                alert('There was an error sending your message. Please try again later.');
+            }
+        } else {
+            alert('There was an error sending your message. Please try again later.');
+        }
+    };
+
+    xhr.send(formData);
 });
 
