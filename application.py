@@ -1,5 +1,4 @@
 import ssl
-
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from datetime import datetime
 import smtplib
@@ -15,7 +14,6 @@ application = Flask(__name__)
 application.secret_key = SECRET_KEY
 
 
-# Dynamic path construction
 def load_json(filename):
     try:
         file_path = os.path.join(application.static_folder, 'JSON', filename)
@@ -26,7 +24,6 @@ def load_json(filename):
         return {}
 
 
-# Load JSON files
 en_json = load_json('en.json')
 pt_json = load_json('pt.json')
 
