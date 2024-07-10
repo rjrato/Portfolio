@@ -1,8 +1,0 @@
-2024-07-05 17:48:40,450 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:53:29,630 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:53:31,528 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:53:31,931 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:53:48,906 ERROR: Error: [Errno 2] No such file or directory: 'static/pt.json' [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:74]
-2024-07-05 17:54:53,421 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:54:54,496 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
-2024-07-05 17:54:54,982 INFO: Application startup [in C:\Users\ricar\OneDrive\Documents\Development\Portfolio\application.py:27]
