@@ -4,6 +4,7 @@ from datetime import datetime
 import smtplib
 import json
 import os
+import re
 
 EMAIL = os.environ.get("EMAIL")
 PASS = os.environ.get("PASS")
@@ -56,6 +57,17 @@ def contact():
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
+
+        if not name or not email or not message:
+            return jsonify({"status": "error", "message": "All fields are required."}), 400
+
+        email_validation = re.compile(r"[^@]+@[^@]+\.[^@]+")
+        if not email_validation.match(email):
+            return jsonify({"status": "error", "message": "Invalid email address. Try again."}), 400
+
+        if len(message) < 1:
+            return jsonify({"status": "error", "message": "Ups! You forget to write you're message!"}), 400
+
         try:
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as connection:
@@ -65,7 +77,7 @@ def contact():
                     to_addrs=TO_ADDRESS,
                     msg=f"Subject:You got a new contact from ricardorato.dev!\n\nMessage from:\n{name}\n\nEmail:\n{email}\n\nMessage:\n{message}"
                 )
-            return jsonify({"status": "success"}), 200
+            return jsonify({"status": "success", "message": "Thank you for your contact!\nWill get back to you as soon as possible."}), 200
         except Exception as e:
             return jsonify({"status": "error", "message": str(e)}), 500
 

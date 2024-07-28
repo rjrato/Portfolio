@@ -1298,36 +1298,17 @@ section.contact form textarea:valid ~ label {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .feedback-message.show {
     animation: slideInOut 6s forwards;
-}
-
-.feedback-message.show p {
-    animation: fadeText 6s forwards;
-}
-
-.feedback-1 {
-    margin: 0;
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    opacity: 0;
-}
-
-.feedback-2 {
-    margin: 0;
-    width: 100%;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
 }
 
 @keyframes slideInOut {
