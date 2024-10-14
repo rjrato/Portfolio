@@ -2,40 +2,47 @@
 
     <section class="about" id="about">
         <div class="container-fluid">
+
             <h3 id="about-h3" class="about-h3">{{ data.aboutH3 }}</h3>
             <h2 id="about-h2" class="about-h2">{{ data.aboutH2 }}</h2>
 
-            <div class="about-contacts-div-icons">
-              <ul class="about-contacts-ul">
+            <div class="about-content-div">
+                <div class="about-content">
+                    <h4 class="about-h4">
+                        <p id="about-p1">{{ data.aboutP1|safe }}</p>
+                        <p id="about-p2">{{ data.aboutP2|safe }}</p>
+                        <p id="about-p3">{{ data.aboutP3|safe }}</p>
+                    </h4>
+                </div>
 
-                <!-- LINKEDIN -->
-                <li>
-                  <a href="https://www.linkedin.com/in/rjrato/" target="_blank" aria-label="open link to ricardo's linkedin page."><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-                </li>
+                <div class="about-contacts-div-icons">
+                    <ul class="about-contacts-ul">
 
-                <!-- GITHUB -->
-                <li>
-                  <a href="https://github.com/rjrato" target="_blank" aria-label="open link to ricardo's github page."><i class="fab fa-github" aria-hidden="true"></i></a>
-                </li>
+                        <!-- LINKEDIN -->
+                        <li>
+                            <a href="https://www.linkedin.com/in/rjrato/" target="_blank" aria-label="open link to ricardo's linkedin page."><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                        </li>
 
-                <!-- EMAIL -->
-                <li>
-                  <a href="#contact" aria-label="send an email to ricardo."><i class="fa-solid fa-at" aria-hidden="true"></i></a>
-                </li>
+                        <!-- GITHUB -->
+                        <li>
+                            <a href="https://github.com/rjrato" target="_blank" aria-label="open link to ricardo's github page."><i class="fab fa-github" aria-hidden="true"></i></a>
+                        </li>
 
-              </ul>
+                        <!-- EMAIL -->
+                        <li>
+                            <a href="#contact" aria-label="send an email to ricardo."><i class="fa-solid fa-at" aria-hidden="true"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="about-cv">
+                    <h3 id="about-cv" class="about-resume-h3">{{ data.aboutCv }} <a id="about-cv-link" href="{{ data.aboutCvLink }}" target="_blank" aria-label="link to ricardo's resume" class="about-resume-a">{{ data.aboutCvLinkText }}</a>!</h3>
+                </div>
+
             </div>
-            <div class="about-content">
-              <h4 class="about-h4">
-                <p id="about-p1">{{ data.aboutP1|safe }}</p>
-                <p id="about-p2">{{ data.aboutP2|safe }}</p>
-                <p id="about-p3">{{ data.aboutP3|safe }}</p>
-              </h4>
-            </div>
 
-            <div class="about-cv">
-              <h3 id="about-cv" class="about-resume-h3">{{ data.aboutCv }} <a id="about-cv-link" href="{{ data.aboutCvLink }}" target="_blank" aria-label="link to ricardo's resume" class="about-resume-a"><strong>{{ data.aboutCvLinkText }}</strong></a></h3>
-            </div>
+
         </div>
     </section>
 
