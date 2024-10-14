@@ -1,14 +1,14 @@
 @charset "utf-8";
 
 @font-face {
-  font-family: "valencia";
-  src: url("./../fonts/Valencia 400.ttf");
-  font-display: swap;
+    font-family: "valencia";
+    src: url("./../fonts/Valencia 400.ttf");
+    font-display: swap;
 }
 
 html{
-  font-family: sans-serif;
-  overflow: auto;
+    font-family: sans-serif;
+    overflow: auto;
 }
 
 html::-webkit-scrollbar {
@@ -19,16 +19,27 @@ body {
     font-size: 16px;
 }
 
+h1, h2, h3, h4 {
+    font-family: "Montserrat";
+    padding-bottom: 25px;
+}
+
+h1 {
+    font-weight: 900;
+    padding: 25px 0 40px 0;
+    margin-bottom: 40px;
+}
+
 .container-fluid {
-  padding: 0 10% 0;
+    padding: 0 10% 0;
 }
 
 .header {
-  font-family: "Ubuntu";
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #C5C6C7;
-  background-color: #1F2833;
+    font-family: "Ubuntu";
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #C5C6C7;
+    background-color: #1F2833;
 }
 
 /*-- NAV MENU --*/
@@ -216,117 +227,117 @@ nav input:checked ~ ul li {
 }
 
 /*-- HOMEPAGE SECTION --*/
-
 .homepage {
-  background-color: #F6F1F1;
-  color: #146C94;
+    background-color: #F6F1F1;
+    color: #146C94;
 }
 
 .homepage-h1 {
-  display: block;
-  margin: 190px 0 50px 0;
-  font-family: "ubuntu";
-  line-height: 1.5;
-  font-size: 1.5rem;
+    display: block;
+    margin: 190px 0 50px 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
 }
 
 .homepage-signature {
-  font-family: "valencia";
-  display: block;
-  width: 100%;
-  font-size: 7.5rem;
-  text-align: center;
+    display: block;
+    font-family: "valencia";
+    font-weight: 500;
+    width: 100%;
+    height: auto;
+    font-size: 10rem;
+    text-align: center;
 }
 
 .homepage-title {
-  display: inline-block;
-  width: 100%;
-  font-weight: bold;
-  font-size: 2.5rem;
-  text-align: center;
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .homepage-and {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding-top: 10px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .homepage-container-flip {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
 }
 
 .homepage-container-flip span {
-  position: absolute;
-  white-space: normal;
-  opacity: 0;
-  -webkit-animation: rotate-word 20s linear infinite;
-  overflow: hidden;
-  word-wrap: break-word;
-  display: inline-block;
+    position: absolute;
+    white-space: normal;
+    opacity: 0;
+    -webkit-animation: rotate-word 20s linear infinite;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: inline-block;
 }
 
 .homepage-container-flip span:nth-child(2) {
-  -webkit-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
 }
 
 .homepage-container-flip span:nth-child(3) {
-  -webkit-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
 }
 
 .homepage-container-flip span:nth-child(4) {
-  -webkit-animation-delay: 7.5s;
+    -webkit-animation-delay: 7.5s;
 }
 
 .homepage-container-flip span:nth-child(5) {
-  -webkit-animation-delay: 10s;
+    -webkit-animation-delay: 10s;
 }
 
 .homepage-container-flip span:nth-child(6) {
-  -webkit-animation-delay: 12.5s;
+    -webkit-animation-delay: 12.5s;
 }
 
 .homepage-container-flip span:nth-child(7) {
-  -webkit-animation-delay: 15s;
+    -webkit-animation-delay: 15s;
 }
 
 .homepage-container-flip span:nth-child(8) {
-  -webkit-animation-delay: 17.5s;
+    -webkit-animation-delay: 17.5s;
 }
 
 @-webkit-keyframes rotate-word {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    transform: translateY(-20px);
-  }
-  4% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  17% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  19% {
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(20px);
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
+    1% {
+        transform: translateY(-20px);
+    }
+    4% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    17% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    19% {
+        opacity: 0;
+    }
+    20% {
+        transform: translateY(20px);
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .flip {
@@ -609,18 +620,12 @@ nav input:checked ~ ul li {
     padding: 80px 0 50px 0;
 }
 
-.about-h2, .about-h3 {
-    font-family: "Montserrat";
-    padding-bottom: 25px;
+.about-h1 {
+    font-weight: 900;
+    color: #13005A;
 }
 
 .about-h2 {
-    font-weight: 900;
-    color: #13005A;
-    margin-bottom: 40px;
-}
-
-.about-h3 {
     color: #F6F1F1;
 }
 
@@ -702,7 +707,7 @@ nav input:checked ~ ul li {
     color: #13005A;
 }
 
-.about-h3, .about-h2, .about-cv {
+.about-h2, .about-h1, .about-cv {
     text-align: center;
 }
 
@@ -712,26 +717,25 @@ nav input:checked ~ ul li {
 
 /*-- SKILLS SECTION --*/
 .skills {
-  background-color: #F9F7F7;
-  padding: 80px 0 50px 0;
+    background-color: #F9F7F7;
+    padding: 80px 0 50px 0;
 }
 
-.skills h2, h3 {
-  font-family: "Montserrat";
+.skills h1 {
+  color: #112D4E;
 }
 
 .skills h2 {
-  font-weight: 900;
-  color: #112D4E;
-  padding: 25px 0 40px 0;
-}
-
-.skills h3 {
   color: #146C94;
 }
 
 .skills-p {
   color: #112D4E;
+  font-weight: bold;
+}
+
+.skill-icon {
+    filter: drop-shadow(25px 5px 8px rgba(0, 0, 0, 0.5));
 }
 
 .container-tools {
@@ -784,10 +788,9 @@ nav input:checked ~ ul li {
 }
 
 /*-- PROJECTS SECTION --*/
-
 .projects {
-  background-color: #3F72AF;
-  padding: 20px 0 50px 0;
+    background-color: #3F72AF;
+    padding: 20px 0 50px 0;
 }
 
 .projects-container-fluid {
@@ -795,8 +798,16 @@ nav input:checked ~ ul li {
     text-align: left;
 }
 
-.projects-h2, .projects-h3, .projects-h4 {
-  font-family: "Montserrat";
+.projects-h2 {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    color: #F6F1F1;
+    text-align: center;
+}
+
+.projects-h1 {
+    color: #13005A;
+    text-align: center;
 }
 
 .project2-background-video {
@@ -837,20 +848,6 @@ nav input:checked ~ ul li {
   height: 100%;
   object-fit: fill;
   transform: translate(-50%, -50%);
-}
-
-.projects-h3 {
-  padding-top: 60px;
-  padding-bottom: 20px;
-  color: #F6F1F1;
-  text-align: center;
-}
-
-.projects-h2 {
-  font-weight: 900;
-  color: #13005A;
-  padding-bottom: 20px;
-  text-align: center;
 }
 
 .game-section {
