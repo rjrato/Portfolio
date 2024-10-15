@@ -19,19 +19,21 @@ body {
     font-size: 16px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: "Montserrat";
     padding-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
     font-weight: 900;
-    padding: 25px 0 40px 0;
+    padding-top: 25px;
     margin-bottom: 40px;
 }
 
 .container-fluid {
-    padding: 0 10% 0;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 .header {
@@ -234,19 +236,26 @@ nav input:checked ~ ul li {
 
 .homepage-h1 {
     display: block;
-    margin: 190px 0 50px 0;
-    line-height: 1.5;
+    margin: 80px 0 0 0;
+    line-height: 1.2;
     font-size: 1.5rem;
 }
 
 .homepage-signature {
     display: block;
+    line-height: 1;
     font-family: "valencia";
     font-weight: 500;
     width: 100%;
     height: auto;
-    font-size: 10rem;
+    font-size: 8rem;
     text-align: center;
+    margin-bottom: 25px;
+}
+
+.flip::after {
+  width: 34px;
+  height: 34px;
 }
 
 .homepage-title {
@@ -262,12 +271,15 @@ nav input:checked ~ ul li {
     width: 100%;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .homepage-container-flip {
     position: relative;
     overflow: hidden;
     display: inline-block;
+    width: 100%;
+    height: 43px;
 }
 
 .homepage-container-flip span {
@@ -354,24 +366,6 @@ nav input:checked ~ ul li {
   height: 20px;
 }
 
-@media (min-width: 320px) {
-  .homepage-signature {
-    line-height: 1;
-    position: relative;
-    left: -10px;
-  }
-
-  .homepage-container-flip {
-    width: 100%;
-    height: 43px;
-    overflow: visible;
-  }
-  .flip::after {
-    width: 34px;
-    height: 34px;
-  }
-}
-
 @media (min-width: 650px) {
   .homepage-signature {
     line-height: 1.5;
@@ -412,6 +406,19 @@ nav input:checked ~ ul li {
     width: 40px;
     height: 40px;
   }
+}
+
+@media (min-width: 992px) {
+    .homepage-h1 {
+        margin: 190px 0 50px 0;
+        font-size: 1.5rem;
+    }
+
+    .homepage-signature {
+        line-height: 1;
+        font-size: 12rem;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 1100px) {
@@ -530,12 +537,14 @@ nav input:checked ~ ul li {
 }
 
 .sep3-2 {
-  background-color: #F9F7F7;
+    background-color: #F9F7F7;
+    transform: translateY(-1px);
 }
 
 .sep3-2:after {
-  background-color: #3F72AF;
-  clip-path: polygon(50% 0%,0% 100%,100% 100%);
+    background-color: #3F72AF;
+    clip-path: polygon(50% 0%,0% 100%,100% 100%);
+    transform: translateY(4px);
 }
 
 .sep4-1 {
@@ -555,17 +564,19 @@ nav input:checked ~ ul li {
 
 .sep4-2 {
   background-color: #1F2833;
+  transform: translateY(2px);
 }
 
 .sep4-2:after {
-  background-color: #3F72AF;
-  clip-path: polygon(50% 0%,100% 0%,100% 100%);
+    background-color: #3F72AF;
+    clip-path: polygon(50% 0%,100% 0%,100% 100%);
+    transform: translateY(-2px);
 }
 
 @media (min-width: 320px) {
   .sep1-1 {
     position: relative;
-    margin-top: 80px;
+    margin-top: 10px;
   }
 }
 
@@ -617,7 +628,7 @@ nav input:checked ~ ul li {
 /*-- ABOUT SECTION --*/
 .about {
     background-color: #146C94;
-    padding: 80px 0 50px 0;
+    padding: 40px 0 40px 0;
 }
 
 .about-h1 {
@@ -673,9 +684,8 @@ nav input:checked ~ ul li {
     -webkit-backdrop-filter: blur(10px) brightness(1.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    padding: 50px;
+    padding: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    text-align: left;
 }
 
 .about-contacts-div-icons {
@@ -707,6 +717,10 @@ nav input:checked ~ ul li {
     color: #13005A;
 }
 
+.about-contact-icon {
+    filter: drop-shadow(25px 5px 8px rgba(0, 0, 0, 0.5));
+}
+
 .about-h2, .about-h1, .about-cv {
     text-align: center;
 }
@@ -719,6 +733,11 @@ nav input:checked ~ ul li {
 .skills {
     background-color: #F9F7F7;
     padding: 80px 0 50px 0;
+    transform: translateY(-2px);
+}
+
+.skills-h1, .skills-h2 {
+    text-align: center;
 }
 
 .skills h1 {
@@ -763,21 +782,9 @@ nav input:checked ~ ul li {
   font-size: 5rem;
 }
 
-@media (min-width: 320px) {
-  .skills-h2, .skills-h3 {
-    text-align: center;
-  }
-}
-
 @media (min-width: 600px) {
   .container-tools .box-tool {
     width: 25%;
-  }
-}
-
-@media (min-width: 992px) {
-  .skills-h2, .skills-h3 {
-    text-align: left;
   }
 }
 
@@ -791,6 +798,7 @@ nav input:checked ~ ul li {
 .projects {
     background-color: #3F72AF;
     padding: 20px 0 50px 0;
+    transform: translateY(2px);
 }
 
 .projects-container-fluid {
@@ -860,17 +868,17 @@ nav input:checked ~ ul li {
 }
 
 .game-section .item {
-  margin: 0 15px 60px;
-  width: 380px;
-  height: 400px;
-  display: flex;
-  align-items: flex-end;
-  background-size: 100% 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
+    margin: 0 15px 60px;
+    width: 380px;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    background-size: 100% 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 .game-section .item.active {
@@ -897,7 +905,7 @@ nav input:checked ~ ul li {
   z-index: 1;
   overflow: hidden;
   transform: translateY(calc(100% - 54px));
-  transition: all 0.4s ease-in-out;;
+  transition: all 0.4s ease-in-out;
 }
 
 .game-section .item-desc h3 {
@@ -1098,19 +1106,18 @@ nav input:checked ~ ul li {
 }
 
 /*-- CONTACT SECTION --*/
-
 .contact {
   background-color: #1F2833;
-  padding: 80px 0 50px 0;
+  padding: 40px 0 40px 0;
 }
 
-.contact-h2 {
-  font-family: "Montserrat";
-  font-weight: 900;
+.contact-h1, .contact-p {
+    text-align: center;
+    color: #F6F1F1;
 }
 
-.contact-h2, .contact-p {
-  color: #F6F1F1;
+.contact-p {
+    font-weight: bold;
 }
 
 .contact-form {
@@ -1449,16 +1456,18 @@ footer {
   background-color: #DDE6ED;
   color: #0B0C10;
   text-align: center;
-  padding: 25px 0 20px 0;
+  padding: 20px 0 40px 0;
   margin-bottom: 0;
-  font-size: small;
+  font-size: 1rem;
+  font-weight: bold;
+  transform: translateY(-1px);
 }
 
 footer .fa-twitter, footer .fa-brands.fa-linkedin, footer .fa-github, footer .fa-instagram, footer .fa-solid.fa-at {
   color: #13005A;
   display: inline-block;
   font-size: 2em;
-  padding-bottom: 25px;
+  padding: 25px;
   transition: color 300ms ease-in-out;
 }
 
@@ -1468,38 +1477,42 @@ footer .fa-twitter:hover, footer .fa-brands.fa-linkedin:hover, footer .fa-github
 }
 
 .footer-contacts-div-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     padding: 10px;
     background-color: #DDE6ED;
 }
 
 .footer-contacts-ul {
-  display: flex;
-  list-style-type: none;
-  margin-bottom: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-top: 25px;
+    padding-left: 0;
+    overflow: hidden;
 }
 
 .footer-contacts-ul a:hover {
-  color: #AFD3E2;
-  background-color: transparent;
+    color: #AFD3E2;
+    background-color: transparent;
 }
 
 .footer-contacts-li {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  transform: scale(1);
-  transition: transform .2s ease-in-out;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transform: scale(1.6);
+    transition: transform .2s ease-in-out;
 }
 
 .footer-contacts-li:hover {
-  transform: scale(1.2);
+  transform: scale(1.7);
 }
 
-.footer-contacts-ul {
-  list-style-type: none;
-  padding-left: 0px;
+.footer-contacts-icons {
+    filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.5));
 }
